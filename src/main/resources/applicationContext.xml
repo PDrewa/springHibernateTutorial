@@ -10,13 +10,19 @@
         <property name="rootLoggerLevel" value="FINE"/>
         <property name="printedLoggerLevel" value="FINE"/>
     </bean>
-    <bean id="myFortune"
+    <bean id="myFortuneService"
           class="HappyFortuneService">
 
     </bean>
+    <!--  constructor injection  -->
     <bean id="myCoach"
           class="TrackCoach">
-        <constructor-arg ref = "myFortune"/>
+        <constructor-arg ref="myFortuneService"/>
+    </bean>
+    <bean id="myCricketCoach"
+          class="CricketCoach">
+        <!--        set up setter injeciton-->
+        <property name="fortuneService" ref="myFortuneService"/>
     </bean>
 
 </beans>
